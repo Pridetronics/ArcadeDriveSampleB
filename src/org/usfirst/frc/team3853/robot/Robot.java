@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends SampleRobot {
 
-  private RobotDrive myRobotDrive; // class that handles basic drive operations
+  private RobotDrive myRobotDrive; // object that handles basic drive operations
 
   private Joystick jStick; // set to ID 1 in DriverStation
 
@@ -40,9 +40,10 @@ public class Robot extends SampleRobot {
   // here we will measure what the current value of "down" is
   private Average avgG;
 
+  // timer object to manage loop timing
   private Timer loopTimer;
-  private final double teleopLoopTime = 0.01;
-  private final double autonLoopTime = 0.005;
+  private final double teleopLoopTime = 0.02;  // teleop about as fast as network updates
+  private final double autonLoopTime = 0.005;  // autonomous quick to react
   private final double shortDelay = Math.min( teleopLoopTime, autonLoopTime ) / 10.0;
 
   private double lastTimeMark;  // the last time something interesting happened
